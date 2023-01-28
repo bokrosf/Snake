@@ -1,0 +1,13 @@
+Main menu
+    - Play
+    - Settings
+    - Quit
+
+Settings
+    - Name
+    - Movement
+
+Play
+    - Game mode selector
+    - Play
+
