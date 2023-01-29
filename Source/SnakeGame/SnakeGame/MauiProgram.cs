@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls.Hosting;
 using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Storage;
+using SnakeGame.Models.Settings;
 using SnakeGame.Persistence;
 
 namespace SnakeGame;
@@ -47,7 +48,8 @@ public static class MauiProgram
 
     private static IServiceCollection RegisterModels(this IServiceCollection services)
     {
-        return services;
+		return services
+			.AddTransient<SettingsEditor>();
     }
 
     private static IServiceCollection RegisterViewModels(this IServiceCollection services)
