@@ -22,18 +22,8 @@ internal class MainMenuRouter : Router
         await (e.LocationName switch
         {
             MainMenuViewModel.PlayNavigation => NavigateToViewModelAsync<GameViewModel, GamePage>(),
-            MainMenuViewModel.SettingsNavigation => NavigateToSettingsAsync(),
+            MainMenuViewModel.SettingsNavigation => NavigateToViewModelAsync<SettingsViewModel, SettingsPage>(),
             _ => Task.CompletedTask
         });
-    }
-
-    private Task NavigateToSettingsAsync()
-    {
-        SettingsPage page = new SettingsPage();
-        SettingsViewModel viewModel = new SettingsViewModel();// { Modal = true };
-        WireViewModel(page, viewModel);
-        SubscribeToEvents(viewModel);
-
-        return MainNavigationPage.Navigation.PushAsync(page);
     }
 }

@@ -4,13 +4,29 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="SnakeGame.Views.Pages.SettingsPage"
     Title="SettingsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Settings"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Button
-            Text="Back" 
-            Command="{Binding NavigateBackCommand}"/>
-    </VerticalStackLayout>
+    <Grid
+        RowDefinitions="Auto,*,Auto">
+        <HorizontalStackLayout
+            Grid.Row="0"
+            HorizontalOptions="Center">
+            <Label
+                Text="Player name"/>
+            <Entry
+                Text="{Binding Settings.PlayerName}"/>
+        </HorizontalStackLayout>
+        <ScrollView>
+            <VerticalStackLayout>
+                
+            </VerticalStackLayout>
+        </ScrollView>
+        <HorizontalStackLayout
+            Grid.Row="2">
+            <Button
+                Text="Save"
+                Command="{Binding SaveCommand}"/>
+            <Button
+                Text="Revert"
+                Command="{Binding RevertCommand}"/>
+        </HorizontalStackLayout>
+    </Grid>
 </ContentPage>
