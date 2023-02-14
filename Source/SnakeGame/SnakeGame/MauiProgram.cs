@@ -5,6 +5,8 @@ using Microsoft.Maui.Hosting;
 using Microsoft.Maui.Storage;
 using SnakeGame.Models.Settings;
 using SnakeGame.Persistence;
+using SnakeGame.ViewModels;
+using SnakeGame.Views.Pages;
 
 namespace SnakeGame;
 
@@ -54,12 +56,14 @@ public static class MauiProgram
 
     private static IServiceCollection RegisterViewModels(this IServiceCollection services)
     {
-        return services;
+		return services
+			.AddTransient<SettingsViewModel>();
     }
 
     private static IServiceCollection RegisterViews(this IServiceCollection services)
     {
-        return services;
+		return services
+			.AddTransient<SettingsPage>();
     }
 
     private static IServiceCollection RegisterRouters(this IServiceCollection services)

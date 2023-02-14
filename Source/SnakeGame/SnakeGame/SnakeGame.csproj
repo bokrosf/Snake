@@ -54,6 +54,21 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Resources\Texts\UiTexts.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>UiTexts.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\Texts\UiTexts.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>UiTexts.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\Pages\GamePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
