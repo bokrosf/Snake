@@ -3,7 +3,7 @@ using System;
 namespace SnakeGame.Models;
 
 /// <summary>
-/// Represents a 2 dimensional vector of integral numbers.
+/// Represents a 2 dimensional float vector.
 /// </summary>
 internal struct Vector : IEquatable<Vector>
 {
@@ -26,16 +26,16 @@ internal struct Vector : IEquatable<Vector>
     /// Rightward unit vector (1, 0).
     /// </summary>
     public static Vector Right { get; }
-    
+
     /// <summary>
     /// Gets the horizontal component.
     /// </summary>
-    public int X { get; }
+    public float X { get; }
     
     /// <summary>
     /// Gets the vertical component.
     /// </summary>
-    public int Y { get; }
+    public float Y { get; }
 
     static Vector()
     {
@@ -58,7 +58,7 @@ internal struct Vector : IEquatable<Vector>
     /// </summary>
     /// <param name="x">Horizontal component.</param>
     /// <param name="y">Vertical component.</param>
-    public Vector(int x, int y)
+    public Vector(float x, float y)
     {
         X = x;
         Y = y;
@@ -81,9 +81,7 @@ internal struct Vector : IEquatable<Vector>
             return false;
         }
 
-        Vector other = (Vector)obj;
-
-        return X == other.X && Y == other.Y;
+        return Equals((Vector)obj);
     }
 
     /// <inheritdoc />
@@ -91,7 +89,7 @@ internal struct Vector : IEquatable<Vector>
     {
         unchecked
         {
-            return X * X + Y;
+            return (int)(X * X + Y);
         }
     }
 
@@ -124,7 +122,7 @@ internal struct Vector : IEquatable<Vector>
     /// </summary>
     /// <param name="scalar">Scaling value.</param>
     /// <param name="vector">Vector that is scaled.</param>
-    public static Vector operator *(int scalar, Vector vector)
+    public static Vector operator *(float scalar, Vector vector)
     {
         return new Vector(scalar * vector.X, scalar * vector.Y);
     }
@@ -134,5 +132,5 @@ internal struct Vector : IEquatable<Vector>
     /// </summary>
     /// <param name="vector">Vector that is scaled.</param>
     /// <param name="scalar">Scaling value.</param>
-    public static Vector operator *(Vector vector, int scalar) => scalar * vector;
+    public static Vector operator *(Vector vector, float scalar) => scalar * vector;
 }
