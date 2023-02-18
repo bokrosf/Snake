@@ -11,7 +11,7 @@ public abstract class Behaviour : Component, IUpdatable, IEnableable
     /// <summary>
     /// Initializes a new instance of the <see cref="Behaviour"/> class that is enabled.
     /// </summary>
-    public Behaviour()
+    protected Behaviour()
     {
         Enabled = true;
     }
