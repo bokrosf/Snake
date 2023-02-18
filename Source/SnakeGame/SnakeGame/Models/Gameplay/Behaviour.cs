@@ -9,6 +9,14 @@ public abstract class Behaviour : Component, IEnableable
     public bool Enabled { get; set; }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="Behaviour"/> class that is enabled.
+    /// </summary>
+    public Behaviour()
+    {
+        Enabled = true;
+    }
+
+    /// <summary>
     /// Initializes the behaviour after it has been created. Components can be retrieved here.
     /// </summary>
     public virtual void Initialize()
