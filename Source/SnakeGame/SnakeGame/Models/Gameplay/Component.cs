@@ -7,8 +7,6 @@ namespace SnakeGame.Models.Gameplay;
 /// </summary>
 public abstract class Component
 {
-    private GameObject? gameObject;
-
     /// <summary>
     /// Gets or privately sets the <see cref="Gameplay.GameObject"/> this component is attached to.
     /// </summary>
@@ -28,12 +26,12 @@ public abstract class Component
     /// <exception cref="InvalidOperationException">Already attached to another <see cref="Gameplay.GameObject"/>.</exception>
     public void Attach(GameObject gameObject)
     {
-        if (this.gameObject is not null)
+        if (GameObject is not null)
         {
             throw new InvalidOperationException("Already attached to a game object. Must detach from current game object before attaching to another.");
         }
 
-        this.gameObject = gameObject;
+        GameObject = gameObject;
     }
 
     /// <summary>
@@ -41,6 +39,6 @@ public abstract class Component
     /// </summary>
     public void Detach()
     {
-        gameObject = null;
+        GameObject = null;
     }
 }
