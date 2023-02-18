@@ -1,4 +1,4 @@
-namespace SnakeGame.Models.Gameplay;
+namespace SnakeGame.Models.Gameplay.Engine;
 
 /// <summary>
 /// Defines members to update state in the current frame before rendering.
