@@ -38,7 +38,7 @@ public class ComponentNotFoundException : Exception
     /// </summary>
     /// <param name="componentType">Type of the missing component.</param>
     public ComponentNotFoundException(Type componentType)
-        : base($"{GetComponentTypeMessagePart(componentType)}")
+        : base(GetComponentTypeMessagePart(componentType))
     {
     }
 
@@ -57,8 +57,8 @@ public class ComponentNotFoundException : Exception
     /// Initializes a new instance of the <see cref="ComponentNotFoundException"/> class with the exception 
     /// that is the cause of this exception, and the component type.
     /// </summary>
+    /// <param name="innerException">The exception that is the cause of the current exception.</param>
     /// <param name="componentType">Type of the missing component.</param>
-    /// <param name="innerException">The exception that is the cause of the current exception</param>
     public ComponentNotFoundException(Exception? innerException, Type componentType)
         : base(GetComponentTypeMessagePart(componentType), innerException)
     {
@@ -69,8 +69,8 @@ public class ComponentNotFoundException : Exception
     /// the exception that is the cause of this exception, and the component type.
     /// </summary>
     /// <param name="message">The message that describes the error.</param>
+    /// <param name="innerException">The exception that is the cause of the current exception.</param>
     /// <param name="componentType">Type of the missing component.</param>
-    /// <param name="innerException">The exception that is the cause of the current exception</param>
     public ComponentNotFoundException(string? message, Exception? innerException, Type componentType)
         : base($"{message} {GetComponentTypeMessagePart(componentType)}", innerException)
     {
