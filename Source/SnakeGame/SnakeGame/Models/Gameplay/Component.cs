@@ -22,15 +22,6 @@ public abstract class Component
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Component"/> class and attaches it to the specified <see cref="Gameplay.GameObject"/>.
-    /// </summary>
-    /// <param name="gameObject"><see cref="Gameplay.GameObject"/> to attach to.</param>
-    protected Component(GameObject gameObject)
-    {
-        Attach(gameObject);
-    }
-
-    /// <summary>
     /// Adds functionality to the specified <see cref="Gameplay.GameObject"/>.
     /// </summary>
     /// <param name="gameObject"><see cref="Gameplay.GameObject"/> attached to.</param>
