@@ -37,6 +37,11 @@ public struct Vector : IEquatable<Vector>
     /// </summary>
     public float Y { get; }
 
+    /// <summary>
+    /// Lenght of the vector.
+    /// </summary>
+    public float Magnitude { get; }
+
     static Vector()
     {
         Up = new Vector(0, 1);
@@ -62,6 +67,15 @@ public struct Vector : IEquatable<Vector>
     {
         X = x;
         Y = y;
+        Magnitude = MathF.Sqrt(X * X + Y * Y);
+    }
+
+    /// <summary>
+    /// Returns this vector with a magnitude of 1.
+    /// </summary>    
+    public Vector Normalize()
+    {
+        return 1.0f / Magnitude * this;
     }
 
     /// <summary>
