@@ -4,7 +4,7 @@ namespace SnakeGame.Models.Gameplay;
 /// Base class for defining behaviours that can update their state in every frame.
 /// It can be used to implement game logic or components.
 /// </summary>
-public abstract class Behaviour : Component, IEnableable
+public abstract class Behaviour : Component, IUpdatable, IEnableable
 {
     public bool Enabled { get; set; }
 
@@ -23,9 +23,6 @@ public abstract class Behaviour : Component, IEnableable
     {
     }
 
-    /// <summary>
-    /// Called in every frame before rendering if the behaviour is enabled.
-    /// </summary>
     public virtual void Update()
     {
     }
