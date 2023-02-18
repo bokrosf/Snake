@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,14 +9,75 @@ namespace SnakeGame.Models.Gameplay;
 /// </summary>
 public class GameObject
 {
+    private List<GameObject> children;
     private List<Component> components;
+
+    /// <summary>
+    /// The parent of the <see cref="GameObject"/>.
+    /// </summary>
+    public GameObject? Parent { get; private set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GameObject"/> class.
     /// </summary>
     public GameObject()
     {
+        children = new List<GameObject>();
         components = new List<Component>();
+    }
+
+    /// <summary>
+    /// Sets the new parent of the current instance and detaches it from the current parent.
+    /// </summary>
+    /// <param name="parent">New parent.</param>
+    /// <exception cref="ArgumentException">New parent is the same as the current instance.</exception>
+    public void SetParent(GameObject? parent)
+    {
+        if (parent == this)
+        {
+            throw new ArgumentException("Current instance can not be it's own parent.", nameof(parent));
+        }
+        
+        if (Parent is not null)
+        {
+            Parent.children.Remove(this);
+        }
+
+        Parent = parent;
+
+        if (Parent is not null)
+        {
+            Parent.children.Add(this);
+        }
+    }
+
+    /// <summary>
+    /// Removes all children from the hierarchy by preserving each child's own hierarchy, and returns the removed children.
+    /// </summary>
+    public IEnumerable<GameObject> ClearChildren()
+    {
+        foreach (var c in children)
+        {
+            c.SetParent(null);
+            yield return c;
+        }
+    }
+
+    /// <summary>
+    /// Detaches from the parent and recursively removes all children and components.
+    /// </summary>
+    public void Clear()
+    {
+        Queue<GameObject> objectsToRemove = new Queue<GameObject>(children);
+        objectsToRemove.Enqueue(this);
+
+        while (objectsToRemove.Any())
+        {
+            GameObject toRemove = objectsToRemove.Dequeue();
+            toRemove.ClearComponents();
+            toRemove.children.ForEach(c => objectsToRemove.Enqueue(c));
+            toRemove.SetParent(null);
+        }        
     }
 
     /// <summary>
@@ -97,5 +159,5 @@ public class GameObject
     /// <summary>
     /// Removes all <see cref="Component"/>s to reduce functionality.
     /// </summary>
-    public void ClearComponents() => RemoveAllComponentsOfType<Component>();    
+    public void ClearComponents() => RemoveAllComponentsOfType<Component>();
 }
