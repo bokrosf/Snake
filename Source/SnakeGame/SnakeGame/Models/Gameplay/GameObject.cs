@@ -7,7 +7,7 @@ namespace SnakeGame.Models.Gameplay;
 /// <summary>
 /// Represents an object that takes part in the gameplay.
 /// </summary>
-public class GameObject
+public class GameObject : IUpdatable
 {
     private List<GameObject> children;
     private List<Component> components;
@@ -160,4 +160,23 @@ public class GameObject
     /// Removes all <see cref="Component"/>s to reduce functionality.
     /// </summary>
     public void ClearComponents() => RemoveAllComponentsOfType<Component>();
+
+    public void Update()
+    {
+        foreach (var child in children)
+        {
+            child.Update();
+            child.UpdateComponents();
+        }
+
+        UpdateComponents();
+    }
+
+    private void UpdateComponents()
+    {
+        foreach (var behaviour in components.Where(c => c is Behaviour).Cast<Behaviour>())
+        {
+            behaviour.Update();
+        }
+    }
 }
