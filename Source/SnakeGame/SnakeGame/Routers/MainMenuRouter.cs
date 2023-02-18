@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame.Routers;
 
-internal class MainMenuRouter : Router
+public class MainMenuRouter : Router
 {
 	public MainMenuRouter(IServiceProvider services, MainMenuPage page, MainMenuViewModel viewModel)
         : base(services)

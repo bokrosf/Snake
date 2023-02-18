@@ -6,7 +6,7 @@ namespace SnakeGame.Models.Gameplay;
 /// <summary>
 /// Represents an object that takes part in the gameplay.
 /// </summary>
-internal class GameObject
+public class GameObject
 {
     private List<Component> components;
 

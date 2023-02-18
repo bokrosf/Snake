@@ -6,7 +6,7 @@ namespace SnakeGame.Persistence;
 /// <summary>
 /// Persists data in preferences. Defines methods for saving and retrieving data.
 /// </summary>
-internal class PreferencesStorage
+public class PreferencesStorage
 {
     private IPreferences preferences;
 

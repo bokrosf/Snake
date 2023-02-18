@@ -6,7 +6,7 @@ namespace SnakeGame.Persistence;
 /// <summary>
 /// Storing and accessing persisted data.
 /// </summary>
-internal class Persistence : IPersistence
+public class Persistence : IPersistence
 {
     private readonly PreferencesStorage preferences;
     

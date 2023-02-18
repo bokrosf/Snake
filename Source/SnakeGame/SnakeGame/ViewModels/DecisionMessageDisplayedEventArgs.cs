@@ -2,7 +2,7 @@
 
 namespace SnakeGame.ViewModels;
 
-internal class DecisionMessageDisplayedEventArgs : IConfirmationMessage
+public class DecisionMessageDisplayedEventArgs : IConfirmationMessage
 {
     private bool decision;
     

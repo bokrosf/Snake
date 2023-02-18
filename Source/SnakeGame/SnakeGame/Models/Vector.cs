@@ -5,7 +5,7 @@ namespace SnakeGame.Models;
 /// <summary>
 /// Represents a 2 dimensional float vector.
 /// </summary>
-internal struct Vector : IEquatable<Vector>
+public struct Vector : IEquatable<Vector>
 {
     /// <summary>
     /// Upward unit vector (0, 1).

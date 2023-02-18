@@ -7,7 +7,7 @@ namespace SnakeGame.Models.Settings;
 /// <summary>
 /// Edits the settings of the user.
 /// </summary>
-internal class SettingsEditor
+public class SettingsEditor
 {
     private readonly IPersistence persistence;
 

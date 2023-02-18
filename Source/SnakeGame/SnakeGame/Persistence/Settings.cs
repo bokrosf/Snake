@@ -8,7 +8,7 @@
 /// <param name="MoveDownKeyCode">Keycode of the key used for moving down.</param>
 /// <param name="MoveLeftKeyCode">Keycode of the key used for moving left.</param>
 /// <param name="MoveRightKeyCode">Keycode of the key used for moving right.</param>
-internal record Settings(
+public record Settings(
     string PlayerName,
     int MoveUpKeyCode,
     int MoveDownKeyCode,

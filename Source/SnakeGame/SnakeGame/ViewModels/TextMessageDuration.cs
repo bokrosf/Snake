@@ -1,6 +1,6 @@
 ﻿namespace SnakeGame.ViewModels;
 
-internal enum TextMessageDuration
+public enum TextMessageDuration
 {
     Short,
     Long

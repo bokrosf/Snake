@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame.Routers;
 
-internal class Router
+public class Router
 {
     private readonly IServiceProvider serviceProvider;
     

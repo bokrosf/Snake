@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame.ViewModels;
 
-internal class SettingsViewModel : ViewModel
+public class SettingsViewModel : ViewModel
 {
 	private readonly SettingsEditor editor;
 	private bool discardAvailable;

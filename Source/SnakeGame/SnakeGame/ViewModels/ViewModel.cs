@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SnakeGame.ViewModels;
 
-internal class ViewModel : INotifyPropertyChanged
+public class ViewModel : INotifyPropertyChanged
 {
     public event PropertyChangedEventHandler? PropertyChanged;
     public event EventHandler<NavigationRequestedEventArgs>? NavigationRequested;

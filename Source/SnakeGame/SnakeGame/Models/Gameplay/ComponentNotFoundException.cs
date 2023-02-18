@@ -5,7 +5,7 @@ namespace SnakeGame.Models.Gameplay;
 /// <summary>
 /// The exception that is thrown when a <see cref="Component"/> is not found on a <see cref="GameObject"/>.
 /// </summary>
-internal class ComponentNotFoundException : Exception
+public class ComponentNotFoundException : Exception
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="ComponentNotFoundException"/> class.

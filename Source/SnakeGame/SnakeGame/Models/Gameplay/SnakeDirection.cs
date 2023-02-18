@@ -3,7 +3,7 @@ namespace SnakeGame.Models.Gameplay;
 /// <summary>
 /// The direction where the snake is moving.
 /// </summary>
-internal enum SnakeDirection
+public enum SnakeDirection
 {
     /// <summary>
     /// Upward.

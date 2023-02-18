@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace SnakeGame.ViewModels;
 
-internal class GameViewModel : ViewModel
+public class GameViewModel : ViewModel
 {
 }

@@ -2,7 +2,7 @@
 
 namespace SnakeGame.ViewModels;
 
-internal class MainMenuViewModel : ViewModel
+public class MainMenuViewModel : ViewModel
 {
     public const string PlayNavigation = "Play";
     public const string SettingsNavigation = "Settings";

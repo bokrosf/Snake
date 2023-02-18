@@ -2,7 +2,7 @@
 
 namespace SnakeGame.ViewModels;
 
-internal class ConfirmationMessageDispalyedEventArgs : IConfirmationMessage
+public class ConfirmationMessageDispalyedEventArgs : IConfirmationMessage
 {
     public string Title { get; }
     public string Message { get; }

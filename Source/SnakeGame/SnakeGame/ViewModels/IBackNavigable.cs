@@ -3,7 +3,7 @@ using System;
 
 namespace SnakeGame.ViewModels;
 
-internal interface IBackNavigable
+public interface IBackNavigable
 {
     event EventHandler? BackNavigationRequested;
 

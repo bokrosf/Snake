@@ -2,7 +2,7 @@
 
 namespace SnakeGame.ViewModels;
 
-internal class TextMessageDisplayedEventArgs : EventArgs
+public class TextMessageDisplayedEventArgs : EventArgs
 {
     public string Message { get; }
 

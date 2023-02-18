@@ -5,7 +5,7 @@ namespace SnakeGame.Persistence;
 /// <summary>
 /// Defines methods for accessing stored information.
 /// </summary>
-internal interface IPersistence
+public interface IPersistence
 {
     /// <summary>
     /// Loads the stored settings if there is any; otherwise <see langword="null"/>.
