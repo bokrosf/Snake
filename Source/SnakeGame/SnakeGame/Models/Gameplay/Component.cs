@@ -5,7 +5,7 @@ namespace SnakeGame.Models.Gameplay;
 /// <summary>
 /// Base class for extending functionality of a <see cref="Gameplay.GameObject"/> in runtime by attaching to it.
 /// </summary>
-abstract class Component
+internal abstract class Component
 {
     private GameObject? gameObject;
 
