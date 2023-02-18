@@ -46,7 +46,7 @@ public struct Vector : IEquatable<Vector>
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Vector"/> class with the coordinates of origo (0, 0).
+    /// Initializes a new instance of the <see cref="Vector"/> structure with the coordinates of origo (0, 0).
     /// </summary>
     public Vector()
         : this(0, 0)
@@ -54,7 +54,7 @@ public struct Vector : IEquatable<Vector>
     }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Vector"/> class with the specified coordinates.
+    /// Initializes a new instance of the <see cref="Vector"/> structure with the specified coordinates.
     /// </summary>
     /// <param name="x">Horizontal component.</param>
     /// <param name="y">Vertical component.</param>
