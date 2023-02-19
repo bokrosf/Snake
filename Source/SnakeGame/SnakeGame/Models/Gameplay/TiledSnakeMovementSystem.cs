@@ -40,16 +40,13 @@ public class TiledSnakeMovementSystem : SnakeMovementSystem
 
     private Vector ConvertToTileCenter(Vector position)
     {
-        float horizontalStart = (int)(position.X / TileSize) * TileSize;
-        float verticalStart = (int)(position.Y / TileSize) * TileSize;
-
-        Vector lowerLeftTile = new Vector(
+        Vector lowerLeftTileCorner = new Vector(
             (int)(position.X / TileSize) * TileSize, 
             (int)(position.Y / TileSize) * TileSize);
 
-        Vector centerOfTileOffset = (TileSize * 0.5f, TileSize * 0.5f);
+        Vector tileCenterOffset = (TileSize * 0.5f, TileSize * 0.5f);
         
-        return lowerLeftTile + centerOfTileOffset; 
+        return lowerLeftTileCorner + tileCenterOffset; 
     }
 
     private Vector ConvertToAxisDirection(Vector vector)
