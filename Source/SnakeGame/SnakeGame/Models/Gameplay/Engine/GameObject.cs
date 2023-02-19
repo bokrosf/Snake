@@ -138,7 +138,11 @@ public class GameObject : IUpdatable
     /// Removes the specified <see cref="Component"/> to reduce functionality.
     /// </summary>
     /// <param name="component">Functionality to remove.</param>
-    public void RemoveComponent(Component component) => components.Remove(component);
+    public void RemoveComponent(Component component)
+    {
+        component.Detach();
+        components.Remove(component);
+    }
 
     /// <summary>
     /// Removes all <see cref="Component"/>s that matches the specified type to reduce functionality.
