@@ -38,7 +38,7 @@ public struct Vector : IEquatable<Vector>
     public float Y { get; }
 
     /// <summary>
-    /// Lenght of the vector.
+    /// Length of the vector.
     /// </summary>
     public float Magnitude { get; }
 
