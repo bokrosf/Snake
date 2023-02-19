@@ -178,7 +178,7 @@ public class GameObject : IUpdatable
 
     private void UpdateComponents()
     {
-        foreach (var behaviour in components.Where(c => c is Behaviour).Cast<Behaviour>())
+        foreach (var behaviour in components.Where(c => c is Behaviour b && b.Enabled).Cast<Behaviour>())
         {
             behaviour.Update();
         }
