@@ -153,4 +153,13 @@ public struct Vector : IEquatable<Vector>
     /// <param name="vector">Vector that is scaled.</param>
     /// <param name="scalar">Scaling value.</param>
     public static Vector operator *(Vector vector, float scalar) => scalar * vector;
+
+    /// <summary>
+    /// Implicitly converts the specified tuple of a horizontal and a vertical vector component to a <see cref="Vector"/> instance.
+    /// </summary>
+    /// <param name="coordinate">Coordinates that represent a vector's components.</param>
+    public static implicit operator Vector((float X, float Y) coordinates)
+    {
+        return new Vector(coordinates.X, coordinates.Y);
+    }
 }
