@@ -7,7 +7,7 @@ namespace SnakeGame.Models.Gameplay.Engine;
 /// <summary>
 /// Represents an object that takes part in the gameplay.
 /// </summary>
-public class GameObject : IUpdatable
+public class GameObject : IUpdatable, IEnableable
 {
     private List<GameObject> children;
     private List<Component> components;
@@ -16,6 +16,8 @@ public class GameObject : IUpdatable
     /// The parent of the <see cref="GameObject"/>.
     /// </summary>
     public GameObject? Parent { get; private set; }
+
+    public bool Enabled { get; set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="GameObject"/> class.
@@ -167,7 +169,12 @@ public class GameObject : IUpdatable
 
     public void Update()
     {
-        foreach (var child in children)
+        if (!Enabled)
+        {
+            return;
+        }
+        
+        foreach (var child in children.Where(c => c.Enabled))
         {
             child.Update();
             child.UpdateComponents();
