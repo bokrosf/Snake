@@ -3,27 +3,34 @@ using System;
 namespace SnakeGame.Models.Gameplay.Engine;
 
 /// <summary>
-/// Base class for extending functionality of a <see cref="Gameplay.GameObject"/> in runtime by attaching to it.
+/// Base class for extending functionality of a <see cref="Gameplay.Engine.GameObject"/> in runtime by attaching to it.
 /// </summary>
 public abstract class Component
 {
     /// <summary>
-    /// Gets or privately sets the <see cref="Gameplay.GameObject"/> this component is attached to.
+    /// Gets or privately sets the <see cref="Gameplay.Engine.GameObject"/> this component is attached to.
     /// </summary>
     public GameObject? GameObject { get; private set; }
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="Component"/> class without attaching to any <see cref="Gameplay.GameObject"/>.
+    /// Gets the <see cref="Gameplay.Engine.GameObject"/> this component is attached to.
+    /// If not attached then throws <see cref="InvalidOperationException"/>.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">Not attached to any game object.</exception>
+    public GameObject RequiredGameObject => GameObject ?? throw new InvalidOperationException("Not attached to any game object.");
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Component"/> class without attaching to any <see cref="Gameplay.Engine.GameObject"/>.
     /// </summary>
     protected Component()
     {
     }
 
     /// <summary>
-    /// Adds functionality to the specified <see cref="Gameplay.GameObject"/>.
+    /// Adds functionality to the specified <see cref="Gameplay.Engine.GameObject"/>.
     /// </summary>
-    /// <param name="gameObject"><see cref="Gameplay.GameObject"/> attached to.</param>
-    /// <exception cref="InvalidOperationException">Already attached to another <see cref="Gameplay.GameObject"/>.</exception>
+    /// <param name="gameObject"><see cref="Gameplay.Engine.GameObject"/> attached to.</param>
+    /// <exception cref="InvalidOperationException">Already attached to another <see cref="Gameplay.Engine.GameObject"/>.</exception>
     public void Attach(GameObject gameObject)
     {
         if (GameObject is not null)
@@ -35,7 +42,7 @@ public abstract class Component
     }
 
     /// <summary>
-    /// Removing functionality from the <see cref="Gameplay.GameObject"/> this instance is attached to.
+    /// Removing functionality from the <see cref="Gameplay.Engine.GameObject"/> this instance is attached to.
     /// </summary>
     public void Detach()
     {
