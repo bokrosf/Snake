@@ -138,6 +138,16 @@ public struct Vector : IEquatable<Vector>
     }
 
     /// <summary>
+    /// Substracts two vectors.
+    /// </summary>
+    /// <param name="left">Left operand.</param>
+    /// <param name="right">Right operand.</param>
+    public static Vector operator -(Vector left, Vector right)
+    {
+        return new Vector(left.X - right.X, left.Y - right.Y);
+    }
+
+    /// <summary>
     /// Scales the specified vector. 
     /// </summary>
     /// <param name="scalar">Scaling value.</param>
