@@ -85,6 +85,12 @@ public struct Vector : IEquatable<Vector>
     }
 
     /// <summary>
+    /// Returns the vector that points from the current instance to the specified vector.
+    /// </summary>
+    /// <param name="position">Position where the vector points to.</param>
+    public Vector PointsTo(Vector position) => position - this;
+
+    /// <summary>
     /// Indicates whether this instance and the specified vector are equal.
     /// </summary>
     /// <param name="other">The vector to compare with the current instance.</param>
