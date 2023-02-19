@@ -8,6 +8,11 @@ namespace SnakeGame.Models;
 public struct Vector : IEquatable<Vector>
 {
     /// <summary>
+    /// Zero vector (0, 0).
+    /// </summary>
+    public static Vector Zero { get; }
+    
+    /// <summary>
     /// Upward unit vector (0, 1).
     /// </summary>
     public static Vector Up { get; }
@@ -44,6 +49,7 @@ public struct Vector : IEquatable<Vector>
 
     static Vector()
     {
+        Zero = new Vector(0, 0);
         Up = new Vector(0, 1);
         Down = new Vector(0, -1);
         Left = new Vector(-1, 0);
