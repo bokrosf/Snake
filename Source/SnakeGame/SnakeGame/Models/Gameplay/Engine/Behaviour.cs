@@ -16,13 +16,6 @@ public abstract class Behaviour : Component, IUpdatable, IEnableable
         Enabled = true;
     }
 
-    /// <summary>
-    /// Initializes the behaviour after it has been created. Components can be retrieved here.
-    /// </summary>
-    public virtual void Initialize()
-    {
-    }
-
     public virtual void Update()
     {
     }
