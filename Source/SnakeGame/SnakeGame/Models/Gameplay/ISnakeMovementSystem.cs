@@ -7,10 +7,11 @@ namespace SnakeGame.Models.Gameplay;
 public interface ISnakeMovementSystem
 {
     /// <summary>
-    /// Corrects the specified segment's direction, position and length.
+    /// Corrects the specified segment's direction and position.
     /// </summary>
-    /// <param name="segment">Line segment of a snake's body between two breakpoints.</param>
-    Vector CorrectSegment(Vector segment);
+    /// <param name="start">Start of the segment.</param>
+    /// <param name="end">End of the segment.</param>
+    SnakeSegmentCorrection CorrectSegment(Vector start, Vector end);
 
     /// <summary>
     /// Corrects when the snake's head turned to look into the specified direction. Returns the sections of the head movement.
