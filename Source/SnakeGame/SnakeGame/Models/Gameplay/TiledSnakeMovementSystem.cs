@@ -1,4 +1,3 @@
-using SnakeGame.Models.Gameplay.Engine;
 using System;
 using System.Collections.Generic;
 
@@ -7,7 +6,7 @@ namespace SnakeGame.Models.Gameplay;
 /// <summary>
 /// Square tile based snake movement system, where each segment of a snake's body must be inside either horizontal or vertical tile segments.
 /// </summary>
-public class TiledSnakeMovementSystem : Component, ISnakeMovementSystem
+public class TiledSnakeMovementSystem : SnakeMovementSystem
 {
     /// <summary>
     /// Gets the size of a tile that is the length of the square's side.
@@ -23,7 +22,7 @@ public class TiledSnakeMovementSystem : Component, ISnakeMovementSystem
         TileSize = tileSize;
     }
 
-    public SnakeSegmentCorrection CorrectSegment(Vector start, Vector end)
+    public override SnakeSegmentCorrection CorrectSegment(Vector start, Vector end)
     {
         Vector axisDirection = ConvertToAxisDirection(end);
         start = ConvertToTileCenter(start);
@@ -32,7 +31,7 @@ public class TiledSnakeMovementSystem : Component, ISnakeMovementSystem
         return new SnakeSegmentCorrection(start, end);
     }
 
-    public SnakeHeadTurningCorrection CorrectHeadTurning(Vector headPosition, Vector lookDirection)
+    public override SnakeHeadTurningCorrection CorrectHeadTurning(Vector headPosition, Vector lookDirection)
     {
         IReadOnlyList<Vector> headSegments = new List<Vector> { ConvertToTileCenter(headPosition) }.AsReadOnly();
 
