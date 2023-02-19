@@ -47,14 +47,14 @@ public class TiledSnakeMovementSystem : SnakeMovementSystem
             (int)(position.X / TileSize) * TileSize, 
             (int)(position.Y / TileSize) * TileSize);
 
-        Vector centerOfTileOffset = new Vector(TileSize * 0.5f, TileSize * 0.5f);
+        Vector centerOfTileOffset = (TileSize * 0.5f, TileSize * 0.5f);
         
         return lowerLeftTile + centerOfTileOffset; 
     }
 
     private Vector ConvertToAxisDirection(Vector vector)
     {
-        Vector longerAxisProjection = MathF.Abs(vector.X) > MathF.Abs(vector.Y) ? new Vector(vector.X, 0) : new Vector(vector.Y, 0);
+        Vector longerAxisProjection = MathF.Abs(vector.X) > MathF.Abs(vector.Y) ? (vector.X, 0) : (vector.Y, 0);
         
         return longerAxisProjection.Normalize();
     }
