@@ -1,6 +1,6 @@
 using System;
 
-namespace SnakeGame.Models.Gameplay.Engine;
+namespace SnakeGame.GameEngine.Gameplay;
 
 /// <summary>
 /// Base class for extending functionality of a <see cref="Gameplay.Engine.GameObject"/> in runtime by attaching to it.

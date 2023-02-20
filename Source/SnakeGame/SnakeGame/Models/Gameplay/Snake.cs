@@ -1,4 +1,5 @@
-using SnakeGame.Models.Gameplay.Engine;
+using SnakeGame.GameEngine;
+using SnakeGame.GameEngine.Gameplay;
 using System;
 using System.Collections.Generic;
 

@@ -1,4 +1,4 @@
-namespace SnakeGame.Models.Gameplay.Engine;
+namespace SnakeGame.GameEngine.Gameplay;
 
 /// <summary>
 /// Defines members that components can implement to enable or disable their behaviours.

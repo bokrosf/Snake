@@ -1,6 +1,6 @@
 using System;
 
-namespace SnakeGame.Models;
+namespace SnakeGame.GameEngine;
 
 /// <summary>
 /// Represents a 2 dimensional float vector.

@@ -1,3 +1,5 @@
+using SnakeGame.GameEngine;
+
 namespace SnakeGame.Models.Gameplay;
 
 /// <summary>

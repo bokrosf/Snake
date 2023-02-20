@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SnakeGame.Models.Gameplay.Engine;
+namespace SnakeGame.GameEngine.Gameplay;
 
 /// <summary>
 /// Represents an object that takes part in the gameplay.

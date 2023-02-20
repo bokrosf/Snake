@@ -83,4 +83,8 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\GameEngine\GameEngine.csproj" />
+	</ItemGroup>
+
 </Project>

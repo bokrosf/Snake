@@ -1,6 +1,6 @@
 using System;
 
-namespace SnakeGame.Models.Gameplay.Engine;
+namespace SnakeGame.GameEngine.Gameplay;
 
 /// <summary>
 /// The exception that is thrown when a <see cref="Component"/> is not found on a <see cref="GameObject"/>.

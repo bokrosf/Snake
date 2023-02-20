@@ -1,4 +1,4 @@
-namespace SnakeGame.Models.Gameplay.Engine;
+namespace SnakeGame.GameEngine.Gameplay;
 
 /// <summary>
 /// Base class for defining behaviours that can update their state in every frame.

@@ -1,4 +1,5 @@
-using SnakeGame.Models.Gameplay.Engine;
+using SnakeGame.GameEngine;
+using SnakeGame.GameEngine.Gameplay;
 
 namespace SnakeGame.Models.Gameplay;
 
