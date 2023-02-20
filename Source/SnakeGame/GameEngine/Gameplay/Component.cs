@@ -31,7 +31,7 @@ public abstract class Component
     /// </summary>
     /// <param name="gameObject"><see cref="Gameplay.Engine.GameObject"/> attached to.</param>
     /// <exception cref="InvalidOperationException">Already attached to another <see cref="Gameplay.Engine.GameObject"/>.</exception>
-    public void Attach(GameObject gameObject)
+    internal void Attach(GameObject gameObject)
     {
         if (GameObject is not null)
         {
@@ -44,7 +44,7 @@ public abstract class Component
     /// <summary>
     /// Removing functionality from the <see cref="Gameplay.Engine.GameObject"/> this instance is attached to.
     /// </summary>
-    public void Detach()
+    internal void Detach()
     {
         GameObject = null;
     }
