@@ -64,10 +64,14 @@ public class Snake : Behaviour
     /// <param name="direction">Direction where the snake's head is facing.</param>
     public void LookInDirection(Vector direction)
     {
-        // Korrigálni kell az irányt az aktuális fej pozíció alapján.
         SnakeHeadTurningCorrection correction = movementSystem!.CorrectHeadTurning(segmentPositions.First!.Value, direction);
+        
+        if (correction.HeadDirection == -1 * headDirection)
+        {
+            return;
+        }
+        
         headDirection = correction.HeadDirection;
-
         segmentPositions.RemoveFirst();
 
         foreach (var position in correction.HeadSegments)
