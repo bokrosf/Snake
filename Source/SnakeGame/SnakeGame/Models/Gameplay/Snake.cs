@@ -15,6 +15,11 @@ public class Snake : Behaviour
     private SnakeMovementSystem? movementSystem;
 
     /// <summary>
+    /// Speed of forward movement.
+    /// </summary>
+    public float Speed { get; set; }
+
+    /// <summary>
     /// Creates a new instance of the <see cref="Snake"/> class which has no length. Call the <see cref="Initialize"/> method to properly initialize.
     /// </summary>
     public Snake()
@@ -43,19 +48,7 @@ public class Snake : Behaviour
 
     public override void Update()
     {
-        // Because of DeltaTime a new assembly must be created for the game engine.
-        // This assembly also could contain the Component class' Attach and Detach methods.
-        // GameEngine planning for an objcect that encapsulates the game logic like a level or scene that call's the update and delta time in the right order.
-        // DeltaTime update must be called before the game logic update.
-
-
-        // Movement value: speed * DeltaTime
-
-        
-        // Going straight in the head's direction.
-        // Incrementing the head's position.
-        // Decrementing the tail's position in the section's start direction.
-        // Segment positions: head <- p1 <- p2 <- .. <-- pn <- tail
+        MoveForward();
     }
 
     /// <summary>
@@ -77,6 +70,29 @@ public class Snake : Behaviour
         foreach (var position in correction.HeadSegments)
         {
             segmentPositions.AddFirst(position);
+        }
+    }
+
+    private void MoveForward()
+    {
+        float movedDistance = Time.DeltaTime * Speed;
+        segmentPositions.First!.Value += movedDistance * headDirection;
+
+        while (movedDistance > 0)
+        {
+            float tailSectionLength = segmentPositions.Last!.Value.DistanceFrom(segmentPositions.Last.Previous!.Value);
+
+            if (tailSectionLength > movedDistance)
+            {
+                Vector lastSegmentDirection = segmentPositions.Last.Previous.Value.PointsTo(segmentPositions.Last.Value).Normalize();
+                segmentPositions.Last.Value -= movedDistance * lastSegmentDirection;
+            }
+            else
+            {
+                segmentPositions.RemoveLast();
+            }
+
+            movedDistance -= MathF.Min(tailSectionLength, movedDistance);
         }
     }
 }
