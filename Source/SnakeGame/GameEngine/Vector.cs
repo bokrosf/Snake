@@ -91,6 +91,12 @@ public struct Vector : IEquatable<Vector>
     public Vector PointsTo(Vector position) => position - this;
 
     /// <summary>
+    /// Returns the distance between the current instance and the specified vector.
+    /// </summary>
+    /// <param name="position">Position.</param>
+    public float DistanceFrom(Vector position) => PointsTo(position).Magnitude;
+
+    /// <summary>
     /// Indicates whether this instance and the specified vector are equal.
     /// </summary>
     /// <param name="other">The vector to compare with the current instance.</param>
